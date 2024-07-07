@@ -1,5 +1,6 @@
 from tkinter import *
 from PIL import Image,ImageTk
+from employee import employee_class
 
 class IMS:
     def __init__(self,root):
@@ -33,7 +34,7 @@ class IMS:
 
         lbl_menu=Label(LeftMenu,text="Menu",font=("times new roman",35),bg="#D6EAF8").pack(side=TOP,fill=X)
         
-        btn_emp=Button(LeftMenu,text="Employee Details",image=self.icon_side,compound=LEFT,padx=20,anchor='w',font=("times new roman",25,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
+        btn_emp=Button(LeftMenu,text="Employee Details",command=self.employee,image=self.icon_side,compound=LEFT,padx=20,anchor='w',font=("times new roman",25,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
         btn_supplier=Button(LeftMenu,text="Supplier Details",image=self.icon_side,compound=LEFT,padx=20,anchor='w',font=("times new roman",25,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
         btn_category=Button(LeftMenu,text="Category",image=self.icon_side,compound=LEFT,padx=20,anchor='w',font=("times new roman",25,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
         btn_prod=Button(LeftMenu,text="Product",image=self.icon_side,compound=LEFT,padx=20,anchor='w',font=("times new roman",25,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
@@ -63,6 +64,15 @@ class IMS:
         # => FOOTER
         bar_footer=Label(self.root,text="Inventory Management System | Developed by Ishan Jain\nFor any Technical Issue Contact: 8595xxxx13",font=("times new roman",15),bg="#616A6B",fg="white").pack(side=BOTTOM,fill=X)
 
-root=Tk()
-obj=IMS(root)
-root.mainloop()
+
+    def employee(self):
+        self.new_win=Toplevel(self.root)
+        self.new_obj=employee_class(self.new_win)
+
+
+
+if __name__=="__main__":
+
+    root=Tk()
+    obj=IMS(root)
+    root.mainloop()
